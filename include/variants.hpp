@@ -12,8 +12,8 @@ using KernelPtr = void (*)(float, const __half*, const __half*, float, __half*, 
 struct Variant
 {
     std::string name;
-    int         threads_per_row;   // 1 = one thread, 64 = one wave
     KernelPtr   kernel;
+    int         threads_per_row;   // 1 = one thread, 64 = one wave
 };
 
 // Single source of truth for both the benchmark and the test binary. The launch
@@ -22,8 +22,8 @@ struct Variant
 inline const std::vector<Variant>& variants()
 {
     static const std::vector<Variant> v = {
-        {"block",     256,  hgemv_block},
-        {"wave64",    64,   hgemv_wave64},
+        {"block",   hgemv_block,    256},
+        {"wave64",  hgemv_wave64,   64},
     };
     return v;
 }
