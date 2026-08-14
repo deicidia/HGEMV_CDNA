@@ -1,5 +1,5 @@
 HIPCC   := hipcc
-FLAGS   := -O3 -Iinclude --offload-arch=gfx942
+FLAGS   := -O3 -Iinclude --offload-arch=gfx1101
 KERNELS := kernels/kernels.hip
 
 .PHONY: bench test resources isa clean
